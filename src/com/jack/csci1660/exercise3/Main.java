@@ -15,7 +15,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         double out;
 
-        System.out.printf("Enter a temperature in Fahrenheit:\n > ");
+        System.out.printf("Enter a temperature in Fahrenheit (<-420):\n > ");
         out = scanner.nextDouble();
 
         // Might need to handle stuff here...
@@ -32,7 +32,11 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        double fTemp = promptTemperature();
+        double fTemp;
+        do {
+            fTemp = promptTemperature();
+        }
+        while (fTemp > -420.0);
         double cTemp = convertToCelsius(fTemp);
         showTemperature(cTemp);
     }
